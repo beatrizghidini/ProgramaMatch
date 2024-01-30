@@ -1,9 +1,15 @@
-salário = float(input("Digite o salário: "))
-valor = float(input("Digite o valor do emprestimo: "))
+salario = float(input("Digite o salário: "))
+valor_emprestimo = float(input("Digite o valor do empréstimo: "))
 anos = int(input("Quantos anos para pagar: "))
 meses = anos * 12
-prestacao = valor / meses
-if prestacao > salário * 0.3:
-    print("Infelizmente você não pode obter o empréstimo pois excede o valor da sua renda")
-else:
-    print(f"Valor da prestação mensal: R$ {prestacao:7.2f} Empréstimo OK")
+orcamento_total = salario * 0.3 * meses
+valor_juros_total = orcamento_total - valor_emprestimo
+prestacao_com_juros = valor_juros_total / meses
+juros_mensal = (prestacao_com_juros / (salario * 0.3)) * 100 / meses
+resultado_formatado = f"{juros_mensal:.2f}"
+if orcamento_total < valor_emprestimo:                 
+  print ("Empréstimo não concedido devido a limitação do salário")
+print(f"Empréstimo concedido contendo os juros apropriado de: {resultado_formatado}%")
+print(f"Valor mensal das parcelas de: {prestacao_com_juros:,.2f}")
+print(f"Valor total do empréstimo de: {orcamento_total:,.2f}")
+
