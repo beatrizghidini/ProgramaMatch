@@ -7,9 +7,10 @@ valor_juros_total = orcamento_total - valor_emprestimo
 prestacao_com_juros = valor_juros_total / meses
 juros_mensal = (prestacao_com_juros / (salario * 0.3)) * 100 / meses
 resultado_formatado = f"{juros_mensal:.2f}"
-if orcamento_total < valor_emprestimo:                 
+if orcamento_total < valor_emprestimo:
   print ("Empréstimo não concedido devido a limitação do salário")
-print(f"Empréstimo concedido contendo os juros apropriado de: {resultado_formatado}%")
-print(f"Valor mensal das parcelas de: {prestacao_com_juros:,.2f}")
-print(f"Valor total do empréstimo de: {orcamento_total:,.2f}")
+if orcamento_total > valor_emprestimo:
+  print(f"Empréstimo concedido contendo os juros apropriado de: {resultado_formatado}%")
+  print(f"Valor mensal das parcelas de:   {prestacao_com_juros:,.2f}")
+  print(f"Valor total do empréstimo de: {orcamento_total:,.2f}")
 
